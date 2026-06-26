@@ -1,6 +1,6 @@
 # Stack_FBS — Project State / 專案記憶（Claude 跨裝置 context）
 
-> 最後更新：2026/06/21。本檔為 Claude（Desktop / App）每次對話的共用記憶。
+> 最後更新：2026/06/27。本檔為 Claude（Desktop / App）每次對話的共用記憶。
 > 本檔為 **public GitHub**，可放：方法論、系統規格、架構、歷程、持有名單成本/部位、觀察名單。
 > **絕不放**：API Key、密碼、憑證、Token、內網位址 → 存 Fly.io secrets；個人備忘放 Notion 私密頁（不分享給 Claude integration）。
 
@@ -108,7 +108,7 @@
 - 2026/06/12　嘉晶出場（約 +7.3%）；增訂籌碼輔助、資金鐵律、目標報酬（淨 +3%）。
 - 2026/06/15　系統B（短線動能初版）；Stack_FBS 上線：長/短線分頁、費後淨報酬、LINE 通知、排程「上次完成」標示；觀察名單 5 檔入 WATCHLIST；盤後 LINE 停損價警示。
 - 2026/06/16　系統B 改版「準備池埋伏」（兩階段）；觀察名單擴充 3711/2449/6669/2382；凱美列反面教材；部署驗收通過。
-- 2026/06/21　知識記憶改用本 GitHub MD 檔（跨 Desktop/App context）。
+- 2026/06/27　知識記憶改用本 GitHub MD 檔（跨 Desktop/App context）。
 
 ---
 
