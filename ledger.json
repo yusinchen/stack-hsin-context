@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "created": "2026-08-11",
+    "description": "Claude 模擬投資人帳本：以系統A（長線）＋系統B1（準備池）輸出為參考，加裁量層做紙上交易。不構成投資建議。",
+    "capital_twd": 30000,
+    "fee_rate": 0.001425,
+    "fee_min": 20,
+    "tax_rate": 0.003,
+    "rules": [
+      "部位規模不設上限：好機會可全押、現金可花完（2026-08-14 使用者指示，取消原 ≤1/2 限制）",
+      "單筆進場金額 >= 7000 元（低消佔比 <0.3%）",
+      "A 部位：三關卡通過才進，出場依個股劇本",
+      "B1 部位：只跟已觸發且非假突破者，進場價=觸發價假設（T+1 落差註記），停損/停利依 watchpool 劇本",
+      "連 2-3 筆虧損 -> 暫停新倉一週檢討",
+      "B1 到期 10 交易日強制出場"
+    ]
+  },
+  "cash": 19980.25,
+  "positions": [
+    {
+      "symbol": "4763",
+      "name": "材料*-KY",
+      "market": "TWSE",
+      "system": "B1",
+      "entry_date": "2026-08-11",
+      "entry_price": 50.25,
+      "shares": 199,
+      "amount": 9999.75,
+      "buy_fee": 20.0,
+      "total_cost": 10019.75,
+      "stop_loss": 47.74,
+      "take_profit_low": 54.27,
+      "take_profit_high": 55.28,
+      "expiry_date": "2026-08-25",
+      "note": "08/11 盤中觸發 @50.25、13:35 收盤確認非假突破。T+1 假設偏差：實務隔日才進得去（08/10 收盤 50.00，偏差有限）。移動停損：跌破整理下緣或 5MA 孰近用孰，上限 -5%。"
+    }
+  ],
+  "closed_trades": [],
+  "stats": {
+    "total_closed": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl_net_twd": 0,
+    "consecutive_losses": 0
+  },
+  "state": {
+    "paused_until": null,
+    "last_run": "2026-08-13 20:15 快照仍停 08/11（本機排程連兩日未跑）；改網路查價補檢視 4763：08/13 收 51.60 續抱（未實現 +1.97%），無新倉",
+    "waiting_deploy": false
+  }
+}
