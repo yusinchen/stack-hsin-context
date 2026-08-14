@@ -1,0 +1,52 @@
+name: paper-trader-daily
+
+on:
+  schedule:
+    # 台灣時間 15:40（UTC+8，台灣無日光節約）；避開 15:00/15:05 掃描與 GitHub cron 延遲
+    - cron: '40 7 * * 1-5'
+  workflow_dispatch: {}   # 手動測試用
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-trader
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install anthropic
+
+      - name: Run paper trader
+        env:
+          # 不設 ANTHROPIC_API_KEY = 免費「規則守門」模式（只做停損/停利/到期出場）
+          # 進場裁量改由手機版 Claude 專案執行（見 mobile_project_instructions.md）
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RULES_ONLY: ${{ vars.RULES_ONLY }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          PAPER_TRADER_MODEL: ${{ vars.PAPER_TRADER_MODEL }}
+        run: python scripts/paper_trader.py
+
+      - name: Commit results
+        run: |
+          git config user.name "paper-trader-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add paper_trading/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "paper-trader: $(TZ=Asia/Taipei date +%F) daily run"
+            git pull --rebase origin main
+            git push
+          fi
