@@ -16,25 +16,8 @@
       "2026-08-19 新增：帳本遺漏補正規則──若裁量決策於交易日完整執行但記錄未貼上，08/19 盤後驗證決策邏輯與市價後可補正"
     ]
   },
-  "cash": 7070.65,
+  "cash": 16335.85,
   "positions": [
-    {
-      "symbol": "4763",
-      "name": "材料*-KY",
-      "market": "TWSE",
-      "system": "B1",
-      "entry_date": "2026-08-11",
-      "entry_price": 50.25,
-      "shares": 199,
-      "amount": 9999.75,
-      "buy_fee": 20.0,
-      "total_cost": 10019.75,
-      "stop_loss": 47.74,
-      "take_profit_low": 54.27,
-      "take_profit_high": 55.28,
-      "expiry_date": "2026-08-25",
-      "note": "08/11 盤中觸發 @50.25、13:35 收盤確認非假突破。T+1 假設偏差：實務隔日才進得去（08/10 收盤 50.00，偏差有限）。移動停損：跌破整理下緣或 5MA 孰近用孰，上限 -5%。08/19 收 50.4，未實現淨損益 -40.15（-0.40%），距停損 +5.57%，熔斷日逼近。"
-    },
     {
       "symbol": "2606",
       "name": "裕民",
@@ -53,17 +36,41 @@
       "note": "08/17 10:16 觸發 @67.84，收 68.30（+3.02%）站穩觸發價，非假突破確認（財報狗獨立查證，未採用 feed 報價）。watchpool 有 id 175/186 重複列，取較新者之熔斷日 08/31。T+1 偏差：實際成交在 08/18 開盤，收盤 68.30 高於假設進場價 0.68%。停損費後 -5.59%、停利費後 +7.36%~+9.34%。【帳本補正】08/19 收 69.0，未實現淨損益 +141.40（+1.10%），浮盈已成立。08/17 決策邏輯完全成立但記錄遺漏未貼上 repo，08/19 驗證市價確認後補正。"
     }
   ],
-  "closed_trades": [],
+  "closed_trades": [
+    {
+      "symbol": "4763",
+      "name": "材料*-KY",
+      "market": "TWSE",
+      "system": "B1",
+      "entry_date": "2026-08-11",
+      "entry_price": 50.25,
+      "shares": 199,
+      "amount": 9999.75,
+      "buy_fee": 20.0,
+      "total_cost": 10019.75,
+      "stop_loss": 47.74,
+      "take_profit_low": 54.27,
+      "take_profit_high": 55.28,
+      "expiry_date": "2026-08-25",
+      "note": "08/11 盤中觸發 @50.25、13:35 收盤確認非假突破。T+1 假設偏差：實務隔日才進得去（08/10 收盤 50.00，偏差有限）。移動停損：跌破整理下緣或 5MA 孰近用孰，上限 -5%。08/19 收 50.4，未實現淨損益 -40.15（-0.40%），距停損 +5.57%，熔斷日逼近。",
+      "exit_date": "2026-08-24",
+      "exit_price": 46.8,
+      "sell_fee": 20,
+      "sell_tax": 28,
+      "net_pnl_twd": -754.6,
+      "exit_reason": "收盤 46.8 跌破停損 47.74，規則出場"
+    }
+  ],
   "stats": {
-    "total_closed": 0,
+    "total_closed": 1,
     "wins": 0,
-    "losses": 0,
-    "realized_pnl_net_twd": 0,
-    "consecutive_losses": 0
+    "losses": 1,
+    "realized_pnl_net_twd": -754.6,
+    "consecutive_losses": 1
   },
   "state": {
     "paused_until": null,
-    "last_run": "2026-08-21 GHA rules_only：出場0/進場0，現金 7,071",
+    "last_run": "2026-08-24 GHA rules_only：出場1/進場0，現金 16,336",
     "waiting_deploy": false
   }
 }
