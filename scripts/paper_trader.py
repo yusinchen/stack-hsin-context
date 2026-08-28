@@ -217,7 +217,6 @@ def call_claude(prompt):
     msg = client.messages.create(
         model=MODEL,
         max_tokens=3000,
-        temperature=0.3,
         system=(
             "你是台股波段紙上交易的裁量決策引擎，輸出僅限一個 JSON 物件，不要有任何其他文字。"
             "所有金額計算由外部程式執行，你只負責決策與理由。理由用繁體中文＋台股術語，紅=多/買、綠=空/賣。"
