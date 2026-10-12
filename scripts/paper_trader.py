@@ -213,9 +213,9 @@ def rules_decision(reviews):
 def call_claude(prompt):
     import anthropic
     log(f"呼叫 Claude API（{MODEL}）…")
-     key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
-     client = anthropic.Anthropic(api_key=key)
-     msg = client.messages.create(
+    key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    client = anthropic.Anthropic(api_key=key)
+    msg = client.messages.create(
         model=MODEL,
         max_tokens=3000,
         system=(
