@@ -213,8 +213,7 @@ def rules_decision(reviews):
 def call_claude(prompt):
     import anthropic
     log(f"呼叫 Claude API（{MODEL}）…")
-    client = anthropic.Anthropic()
-    msg = client.messages.create(
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip())    msg = client.messages.create(
         model=MODEL,
         max_tokens=3000,
         system=(
@@ -486,7 +485,7 @@ def main():
         try:
             decision = call_claude(prompt)
         except Exception as e:  # noqa: BLE001
-            log(f"❌ Claude 決策失敗：{e}，退回規則守門模式")
+            log(f"❌ Claude 決策失敗：{type(e).__name__}: {e}（{e.__cause__!r}），退回規則守門模式")
             mode = "rules_only"
             decision = rules_decision(reviews)
             decision["gate_text"] = f"（Claude 失敗退回規則守門：{type(e).__name__}）"
